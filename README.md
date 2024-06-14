@@ -1,6 +1,6 @@
 # MusiJournal
 
-MusiJournal is a web application that allows users to keep track of their music listening habits. Users can log in and add songs to their journal, which will keep track of the song's title, artist and album. Users can also view their journal entries and delete them if they wish.
+MusiJournal is a mobile application that allows users to keep track of their music listening habits. Users can log in and add songs to their journal, which will keep track of the song's title, artist and album. Users can also view their journal entries and delete them if they wish.
 
 ## how to run
 
