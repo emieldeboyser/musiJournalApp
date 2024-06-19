@@ -238,7 +238,7 @@ const FirstTime = () => {
             </>
           )}
           {/* SCREEN 2 */}
-          {step === 2 && (
+          {step === 2 && emotion && (
             <>
               <Text style={styles.title}>What's on your mind?</Text>
               <TextInput
@@ -254,7 +254,7 @@ const FirstTime = () => {
 
           {/* SCREEN 3 */}
           {/* STEP 3, MUSIC */}
-          {step === 3 && (
+          {step === 3 && motivation && (
             <View style={styles.trackSection}>
               {selectedTrack ? (
                 <>
@@ -367,9 +367,15 @@ const FirstTime = () => {
           <View style={styles.bottomContainer}>
             {step < 4 && (
               <View style={styles.submit}>
-                {step > 1 ? (
+                {step ? (
                   <View style={styles.submitItem}>
-                    <TouchableOpacity onPress={() => setStep(step - 1)}>
+                    <TouchableOpacity
+                      onPress={() =>
+                        step === 1
+                          ? navigation.navigate("Home")
+                          : setStep(step - 1)
+                      }
+                    >
                       <Text style={styles.submitText}>Back</Text>
                     </TouchableOpacity>
                   </View>

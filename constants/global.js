@@ -3235,7 +3235,7 @@ export async function getAccessToken(url) {
   // kot
   // const redirect_uri = "exp://192.168.200.251:8081";
   // mama
-  const redirect_uri = "exp://192.168.0.17:8081";
+  const redirect_uri = "exp://172.20.10.3:8081";
 
   const response = await fetch("https://accounts.spotify.com/api/token", {
     method: "POST",

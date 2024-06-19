@@ -34,6 +34,7 @@ const TileCalender = () => {
 
     if (data.length === 0) {
       setNoEntryToday(true);
+      const firstTime = await SecureStore.setItemAsync("firstTime", "true");
     } else {
       setNoEntryToday(false);
     }
@@ -66,16 +67,13 @@ const TileCalender = () => {
           style={{
             justifyContent: "center",
             alignItems: "center",
-            height: 180,
+            height: 290,
             width: 370,
             borderRadius: 20,
+            backgroundColor: currentTheme.mid,
           }}
         >
-          <AntDesign
-            name="calendar"
-            size={100}
-            style={{ color: currentTheme.dark }}
-          />
+          <AntDesign name="calendar" size={100} style={{ color: "brown" }} />
           <Text
             style={{
               fontSize: 20,

@@ -119,6 +119,7 @@ const Edit = ({ route }) => {
             emotion_id: emotion ? emotion : route.params.emotion_id,
             motivation: motivation,
             song_id: selectedTrack ? selectedTrack.id : route.params.track.id,
+            media: newMedia ? true : false,
           },
         ])
         .eq("id", route.params.id)
@@ -134,6 +135,7 @@ const Edit = ({ route }) => {
 
       if (newMedia) {
         const user = await supabase.auth.getSession();
+
         const base64 = await FileSystem.readAsStringAsync(newMedia.uri, {
           encoding: FileSystem.EncodingType.Base64,
         });

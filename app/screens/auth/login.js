@@ -19,8 +19,8 @@ import * as SecureStore from "expo-secure-store";
 import { colorThemes } from "../../../constants/global";
 
 export default function LoginScreen() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("expo@gmail.com");
+  const [password, setPassword] = useState("abc123");
   const [hidePassword, setHidePassword] = useState(true);
   const [colorTheme, setColorTheme] = useState("brown");
 

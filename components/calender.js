@@ -728,6 +728,7 @@ const Calander = (props) => {
           };
           fetchMedia();
         }
+        console.log(item);
         setDayView(item);
         getTrackInfo(item.song_id);
 
@@ -1042,7 +1043,7 @@ const Calander = (props) => {
                       position: "absolute",
                       right: 10,
                       width: 60,
-                      height: 60,
+                      height: 80,
                       top: 25,
                       paddingTop: 5,
                     }}
@@ -1182,7 +1183,12 @@ const Calander = (props) => {
                       </View>
                     </View>
                   ) : (
-                    <View style={[styles.addedTrack, { marginHorizontal: 10 }]}>
+                    <View
+                      style={[
+                        styles.addedTrack,
+                        { marginHorizontal: 10, marginTop: 20 },
+                      ]}
+                    >
                       {songLoader ? (
                         <View style={styles.loader}>
                           <ActivityIndicator size="large" color="#654321" />
@@ -1248,7 +1254,7 @@ const Calander = (props) => {
                       </View>
                     )}
                     {/* STEP 2; MOTIVATION */}
-                    {step === 2 && (
+                    {step === 2 && emotion && (
                       <View style={styles.inputSection}>
                         <Text
                           style={[styles.title, { color: currentTheme.dark }]}
@@ -1270,7 +1276,7 @@ const Calander = (props) => {
                                 .join("");
 
                               return (
-                                <>
+                                <React.Fragment key={index}>
                                   <Text
                                     style={{
                                       fontSize: 20,
@@ -1283,8 +1289,7 @@ const Calander = (props) => {
                                   </Text>
                                   <TextInput
                                     style={{
-                                      backgroundColor:
-                                        currentTheme.backgroundColor,
+                                      backgroundColor: currentTheme.mid,
                                       borderRadius: 10,
                                       padding: 10,
                                       margin: 10,
@@ -1297,8 +1302,8 @@ const Calander = (props) => {
                                     onChangeText={(text) =>
                                       handleCommentChange(text, index)
                                     }
-                                  ></TextInput>
-                                </>
+                                  />
+                                </React.Fragment>
                               );
                             })}
                           </ScrollView>

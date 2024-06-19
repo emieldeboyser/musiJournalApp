@@ -47,6 +47,7 @@ const ProfileScreen = () => {
   const logout = async () => {
     await supabase.auth.signOut();
     await SecureStore.deleteItemAsync("refresh_token");
+    await SecureStore.deleteItemAsync("colorTheme");
   };
 
   const fetchUser = async () => {
@@ -249,7 +250,7 @@ const ProfileScreen = () => {
     // kot
     // const redirect_uri = "exp://192.168.200.251:8081";
     // mama
-    const redirect_uri = "exp://192.168.0.17:8081";
+    const redirect_uri = "exp://172.20.10.3:8081";
     const scopes = ["user-read-recently-played, playlist-modify-private"];
     const loginUrl = `https://accounts.spotify.com/authorize?client_id=${client_id}&redirect_uri=${redirect_uri}&scope=${scopes.join(
       "%20"
@@ -259,6 +260,7 @@ const ProfileScreen = () => {
 
   const unAuthenticateSpotify = async () => {
     await SecureStore.deleteItemAsync("acces_token");
+    setAuthenticated(false);
   };
 
   const getTheme = async () => {
@@ -443,22 +445,6 @@ const ProfileScreen = () => {
         style: "cancel",
       },
     ]);
-  };
-
-  const changeTheme = async () => {
-    let theme;
-    if (colorTheme === "brown") {
-      theme = "blue";
-      setColorTheme("blue");
-    } else if (colorTheme === "yellow") {
-      theme = "yellow";
-      setColorTheme("yellow");
-    } else {
-      theme = "brown";
-      setColorTheme("brown");
-    }
-
-    await SecureStore.setItemAsync("colorTheme", theme);
   };
 
   return (
